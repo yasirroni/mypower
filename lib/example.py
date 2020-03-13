@@ -31,9 +31,9 @@ print(slope_kron)
 
 ## losses_kron_slope_method
 from losses_kron_slope_method import losses_kron_slope_method
-import numpy as np
+import copy
 PL_ref=PL_kron
-PGen_ref=np.copy(PGen)
+PGen_ref=copy.deepcopy(PGen)
 
 PGen[0]=PGen[0]+PGen[1]*0.01+PGen[2]*0.01
 PGen[1]=PGen[1]*0.99
