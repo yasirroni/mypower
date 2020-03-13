@@ -62,4 +62,4 @@ def makeB_kron(ppc,pf_alg=1):
     B = H[:nGen,:nGen]
     B0 = 2*H[nGen,:nGen]
     B00 = H[nGen,nGen]
-    return B, B0, B00, success
+    return B.tolist(), B0.tolist(), B00.tolist(), success
