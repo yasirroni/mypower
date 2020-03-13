@@ -5,6 +5,8 @@ Collection of functions that compatible with [PYPOWER](https://github.com/rwl/PY
 1. to_ppc0.py: Fix ppc bus for makeYbus, makeB, etc
 2. makeB_kron.py: Make B based on Kron's method
 3. losses_kron_method.py: Compute losses based on Kron's coefficient
+4. makeB_kron_slope.py: Make first derivative of B Matrices of Kron method
+5. losses_kron_slope_method.py: Compute losses based on Taylor series of Kron's coefficient
 
 # Authors
 * **Muhammad Yasirroni** - [yasirroni](https://github.com/yasirroni)
