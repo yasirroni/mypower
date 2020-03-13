@@ -1,4 +1,4 @@
-def loss_kron_method(kronCoeffResult,baseMVA,Pgen):
+def losses_kron_method(kronCoeffResult,baseMVA,Pgen):
     """Compute losses based on Kron Method."""
     [B,B0,B00]=kronCoeffResult
     Pgen=Pgen/baseMVA #convert to p.u.
