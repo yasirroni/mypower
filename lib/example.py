@@ -32,7 +32,7 @@ print(slope_kron)
 ## losses_kron_slope_method
 from losses_kron_slope_method import losses_kron_slope_method
 import copy
-PL_ref=PL_kron
+PL_ref=copy.deepcopy(PL_kron)
 PGen_ref=copy.deepcopy(PGen)
 
 PGen[0]=PGen[0]+PGen[1]*0.01+PGen[2]*0.01
@@ -56,3 +56,6 @@ result,success = runpf(ppc,ppopt)
 PL_NR = sum(result['branch'][:, PF] + result['branch'][:, PT])
 print('Error PL_slope to PL_NR:',(PL_slope_method-PL_NR)/PL_NR)
 print('Error PL_kron to PL_NR:',(PL_kron-PL_NR)/PL_NR)
+
+PL_kron_constant,_,_,_=losses_kron_method([B,B0,B00],result['baseMVA'],PGen_ref)
+print('Error PL_kron constant to PL_NR:',(PL_kron_constant-PL_NR)/PL_NR)
