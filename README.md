@@ -1,5 +1,5 @@
 # myPower
-Supplementary function and port of [MATPOWER](https://github.com/MATPOWER/matpower)
+Supplementary function and port of [MATPOWER](https://github.com/MATPOWER/matpower) in Python
 
 # List of functions
 1. to_ppc0.py: Fix ppc bus for makeYbus, makeB, etc
