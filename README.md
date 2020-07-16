@@ -1,5 +1,5 @@
 # myPower
-Collection of functions that compatible with [PYPOWER](https://github.com/rwl/PYPOWER)
+SUpplementary function and port of [MATPOWER](https://github.com/MATPOWER/matpower)
 
 # List of functions
 1. to_ppc0.py: Fix ppc bus for makeYbus, makeB, etc
