@@ -5,7 +5,7 @@ def losses_kron_method(kronCoeffResult,baseMVA,PGen):
     B=np.array(B)
     B0=np.array(B0)
     B00=np.array(B00)
-    PGen=PGen/baseMVA #convert to p.u.
+    PGen=np.array(PGen)/baseMVA #convert to p.u.
     PL_Quadratic=PGen.T.dot(B).dot(PGen)*baseMVA
     PL_Linear=B0.dot(PGen)*baseMVA
     PL_Constant=B00*baseMVA
