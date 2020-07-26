@@ -1,8 +1,8 @@
 import os
-def get_index(path_lib=None):
+def get_index(path_matpower_lib=None):
     '''myPower index based on MATPOWER'''
-    if path_lib == None:
-        path_lib=os.path.join(os.getcwd(),'matpower\\lib')
+    if path_matpower_lib == None:
+        path_matpower_lib=os.path.join(os.getcwd(),'matpower\\lib')
 
     idx = {
         # # BUS
@@ -114,7 +114,7 @@ def get_index(path_lib=None):
         # # MU_Qxxx values. Likewise for the lower Q limits.
     }
 
-    with open(os.path.join(path_lib,'idx_bus.m'),'r') as txt:
+    with open(os.path.join(path_matpower_lib,'idx_bus.m'),'r') as txt:
         for line in txt:
             words = line.split()
             if len(words)>0:
@@ -124,7 +124,7 @@ def get_index(path_lib=None):
                     except:
                         pass
 
-    with open(os.path.join(path_lib,'idx_brch.m'),'r') as txt:
+    with open(os.path.join(path_matpower_lib,'idx_brch.m'),'r') as txt:
         for line in txt:
             words = line.split()
             if len(words)>0:
@@ -134,7 +134,7 @@ def get_index(path_lib=None):
                     except:
                         pass
     
-    with open(os.path.join(path_lib,'idx_cost.m'),'r') as txt:
+    with open(os.path.join(path_matpower_lib,'idx_cost.m'),'r') as txt:
         for line in txt:
             words = line.split()
             if len(words)>0:
@@ -144,7 +144,7 @@ def get_index(path_lib=None):
                     except:
                         pass
     
-    with open(os.path.join(path_lib,'idx_gen.m'),'r') as txt:
+    with open(os.path.join(path_matpower_lib,'idx_gen.m'),'r') as txt:
         for line in txt:
             words = line.split()
             if len(words)>0:
@@ -155,6 +155,3 @@ def get_index(path_lib=None):
                         pass
 
     return idx
-if __name__ == '__main__':
-    from myp_pretty import myp_pretty
-    print(myp_pretty(get_index()))
