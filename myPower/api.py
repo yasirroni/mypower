@@ -24,7 +24,7 @@ from .losses_kron_slope import losses_kron_slope_detailed
 from .oc_matpower import oc_matpower
 from .pretty import pretty
 from .save_str import save_str
-from .save_object import save_object
+from .save_pkl import save_pkl
 from .to_mypc import to_mypc
 from .to_mypc0 import to_mypc0
 

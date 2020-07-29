@@ -1,9 +1,10 @@
 from myPower.api import get_index
 def to_mypc(mypc):
-    """Make bus numbering start from 1
+    '''Make bus numbering start from 1
     Convenient for Octave indexing.
-    """
-
+    '''
+    mypc0 = copy.deepcopy(mypc)
+    
     idx = get_index()
 
     if min(mypc['bus'][:,idx['BUS_I']])==1:

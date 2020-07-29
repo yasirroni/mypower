@@ -2,10 +2,10 @@ import copy
 from myPower.api import get_index
 
 def to_mypc0(mypc):
-    """Make bus numbering start from 0
+    '''Make bus numbering start from 0
     Convenient for Python indexing.
-    """
-    mypc0 =  copy.deepcopy(mypc)
+    '''
+    mypc0 = copy.deepcopy(mypc)
 
     idx = get_index()
 
