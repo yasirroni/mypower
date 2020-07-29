@@ -1,10 +1,10 @@
 # myPower
 Supplementary function and port of [MATPOWER](https://github.com/MATPOWER/matpower) in Python.
 
-## lib
+## myPower/
 Containing original myPower function
 
-## matpower_ported
+## myPower/matpower_ported
 Containing callable ported MATPOWER function 
 
 # Requirements
@@ -26,18 +26,17 @@ import oct2py
 ```
 
 ## Library
-myPower needs [numpy](https://github.com/numpy/numpy) to be used.
-Some codes is dependent on [oct2py](https://github.com/blink1073/oct2py) and [PYPOWER](https://github.com/rwl/PYPOWER).
-
+myPower needs [numpy](https://github.com/numpy/numpy) and [oct2py](https://github.com/blink1073/oct2py) to be used.
 ```
-pip install numpy oct2py pypower
+pip install numpy oct2py
 ```
-# List of functions
-1. to_ppc0.py: Fix ppc bus for makeYbus, makeB, etc
-2. makeB_kron.py: Make B based on Kron's method
-3. losses_kron_method.py: Compute losses based on Kron's coefficient
-4. makeB_kron_slope.py: Make first derivative of B Matrices of Kron method
-5. losses_kron_slope_method.py: Compute losses based on Taylor series of Kron's coefficient
+# Notable of functions
+1. losses_kron: Compute losses based on Kron's coefficient
+2. losses_kron_slope: Compute losses based on Taylor series of Kron's coefficient
+3. makeB_kron: Make B based on Kron's method
+4. makeB_kron_slope: Make first derivative of B Matrices of Kron method
+5. to_mypc: Revert mypc indexing to start from 1 for octave compatibility
+6. to_mypc0: Fix mypc bus indexing to start from 0 for Pyhton compatibility
 
 # Authors
 * **Muhammad Yasirroni** - [yasirroni](https://github.com/yasirroni)

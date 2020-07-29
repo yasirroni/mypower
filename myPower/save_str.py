@@ -1,7 +1,7 @@
 from .api import pretty
-def save_str(inp,path=None):
-    if path==None:
+def save_str(inp,path_file=None):
+    if path_file==None:
         import os
-        path=os.path.join(os.getcwd(),'mypc.txt')
-    with open(path,'w') as text:
+        path_file=os.path.join(os.getcwd(),'mypc.txt')
+    with open(path_file,'w') as text:
         text.write(str(pretty(inp)))

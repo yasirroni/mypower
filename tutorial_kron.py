@@ -1,9 +1,18 @@
 # Kron's Method Tutorial using myPower
-#### In this tutorial, we will use:
-####    1. NRPF as Kron's Base
-####    2. DCPF as evaluation target
-####    3. Losses evaluated in evaluation target scenario 
+'''Kron's Method Tutorial
+Kron's Method is one of the most used linearization of AC power flow.
+In this tutorial, you will be guided to make B matrix using Kron's Method and 
+myPower original function, Kron's Slope Method. This work is under Apache 
+License and act as pre-print of Kron's Slope Method publication (paper 
+publication still on progress).
 
+In this tutorial, we will use:
+
+NRPF as Kron's Base
+DCPF as evaluation target
+It means that all losses are evaluated in evaluation target scenario (DCPF)
+'''
+                                                                                
 ## import library
 import os
 import copy
@@ -11,27 +20,25 @@ import copy
 import myPower.api as myp
 import myPower.matpower_api as mp
 
-## get index
-idx = myp.get_index()
-print(myp.pretty(idx))
-
 ## set MATPOWER case_name
 case_name = 'case9'
 print(case_name)
 
-## start octave session for myPower
+## myPower initialization
+### start octave session for myPower
 oc = myp.oc_matpower()
 
-## get bus_slack index
+### get index
+idx = myp.get_index()
+print(myp.pretty(idx))
+
+### get slack generator index
 mypc = oc.loadcase('case9')
 mypc0 = myp.to_mypc0(mypc)
 for bus_slack,val in zip(mypc0['bus'][:,idx['BUS_I']],mypc0['bus'][:,idx['BUS_TYPE']]):
     if val == idx['REF']:
         bus_slack = int(bus_slack)
         break
-print(bus_slack)
-
-## get gen_slack index
 for num,val in enumerate(mypc0['gen'][:,idx['GEN_BUS']]):
     if int(val) == bus_slack:
         gen_slack = int(num)
@@ -53,7 +60,7 @@ print(gen_PG_slack_nr)
 ## DCPF Model (Also Kron's input in using Kron's Coefficient)
 ### set mpoption to dcpf
 mpopt = oc.mpoption(model='DC')
-print(mpopt)
+print(myp.pretty(mpopt))
 
 ### run dcpf 
 mypc_dc = oc.runpf(case_name,mpopt)
@@ -76,16 +83,17 @@ print(myp.pretty(B_kron))
 #### total
 B0_kron,B1_kron,B2_kron = B_kron['B0_kron'], B_kron['B1_kron'], B_kron['B2_kron']
 loss_kr = myp.losses_kron(B0_kron,B1_kron,B2_kron,mypc_dc['gen'][:,idx['PG']],mypc_dc['baseMVA'])
-print(loss_kr)
+print('loss_kr:',loss_kr)
 
 #### individually
 loss_kr0, loss_kr1, loss_kr2 = myp.losses_kron_detailed(B0_kron,B1_kron,B2_kron,mypc_dc['gen'][:,idx['PG']],mypc_dc['baseMVA'])
-print(loss_kr0)
-print(loss_kr1)
-print(loss_kr2)
+print('\tloss_kr0:',loss_kr0)
+print('\tloss_kr1:',loss_kr1)
+print('\tloss_kr2:',loss_kr2)
 
 ### get slack generator power for comparison
 gen_PG_slack_kr = mypc_dc['gen'][gen_slack,idx['PG']] + loss_kr
+print(gen_PG_slack_kr)
 
 ## Kron's Slope Model
 ### make B using Kron's Slope Method (Based on Taylor Series)
@@ -99,6 +107,7 @@ print(loss_krsl)
 
 ### get slack generator power for comparison
 gen_PG_slack_krsl = mypc_dc['gen'][gen_slack,idx['PG']] + loss_krsl
+print(gen_PG_slack_krsl)
 
 ## Comparison
 comparison = {
@@ -127,5 +136,4 @@ comparison = {
         'KRSLPF': (gen_PG_slack_krsl - gen_PG_slack_nr) / gen_PG_slack_nr
     }
 }
-
 print(myp.pretty(comparison))
