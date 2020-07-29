@@ -35,8 +35,8 @@ pip install numpy oct2py
 2. losses_kron_slope: Compute losses based on Taylor series of Kron's coefficient
 3. makeB_kron: Make B based on Kron's method
 4. makeB_kron_slope: Make first derivative of B Matrices of Kron method
-5. to_mypc0: Fix mypc bus indexing to start from 0 for Pyhton compatibility
-6. to_mypc: Revert mypc indexing to start from 1 for octave compatibility
+5. to_mypc: Revert mypc indexing to start from 1 for octave compatibility
+6. to_mypc0: Fix mypc bus indexing to start from 0 for Pyhton compatibility
 
 # Authors
 * **Muhammad Yasirroni** - [yasirroni](https://github.com/yasirroni)
