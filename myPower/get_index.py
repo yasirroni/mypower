@@ -1,8 +1,19 @@
 import os
-def get_index(path_lib=None):
-    '''myPower index based on MATPOWER'''
-    if path_lib == None:
-        path_lib=os.path.join(os.getcwd(),'matpower\\lib')
+def get_index(path_matpower_lib=None,exception='default',file_name='default'):
+    '''myPower index based on MATPOWER
+    Since MATPOWER based on MATLAB, matrix index need to be substracted by 1,
+    except:
+        ['PQ','PV','REF','NONE','PW_LINEAR','POLYNOMIAL']
+
+    '''
+    if path_matpower_lib == None:
+        path_matpower_lib=os.path.join(os.getcwd(),'matpower\\lib')
+    
+    if exception == 'default':
+        exception = ['PQ','PV','REF','NONE','PW_LINEAR','POLYNOMIAL']
+
+    if file_name == 'default':
+        file_name = ['idx_bus.m','idx_brch.m','idx_cost.m','idx_gen.m']
 
     idx = {
         # # BUS
@@ -114,47 +125,18 @@ def get_index(path_lib=None):
         # # MU_Qxxx values. Likewise for the lower Q limits.
     }
 
-    with open(os.path.join(path_lib,'idx_bus.m'),'r') as txt:
-        for line in txt:
-            words = line.split()
-            if len(words)>0:
-                if words[0][0] != '%':
-                    try:
-                        idx[words[0]] = int(words[2][:-1])
-                    except:
-                        pass
-
-    with open(os.path.join(path_lib,'idx_brch.m'),'r') as txt:
-        for line in txt:
-            words = line.split()
-            if len(words)>0:
-                if words[0][0] != '%':
-                    try:
-                        idx[words[0]] = int(words[2][:-1])
-                    except:
-                        pass
-    
-    with open(os.path.join(path_lib,'idx_cost.m'),'r') as txt:
-        for line in txt:
-            words = line.split()
-            if len(words)>0:
-                if words[0][0] != '%':
-                    try:
-                        idx[words[0]] = int(words[2][:-1])
-                    except:
-                        pass
-    
-    with open(os.path.join(path_lib,'idx_gen.m'),'r') as txt:
-        for line in txt:
-            words = line.split()
-            if len(words)>0:
-                if words[0][0] != '%':
-                    try:
-                        idx[words[0]] = int(words[2][:-1])
-                    except:
-                        pass
+    for val in file_name:
+        with open(os.path.join(path_matpower_lib,val),'r') as txt:
+            for line in txt:
+                words = line.split()
+                if len(words)>0:
+                    if words[0][0] != '%':
+                        try:
+                            if words[0] in exception:
+                                idx[words[0]] = int(words[2][:-1])
+                            else:
+                                idx[words[0]] = int(words[2][:-1]) -1
+                        except:
+                            pass
 
     return idx
-if __name__ == '__main__':
-    from myp_pretty import myp_pretty
-    print(myp_pretty(get_index()))
