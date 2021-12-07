@@ -6,7 +6,6 @@ from mypower.makeB_kron import makeB_kron
 from mypower.load_pkl import load_pkl
 from mypower.losses_kron import losses_kron, losses_kron_detailed
 # from mypower.losses_kron_slope import losses_kron_slope, losses_kron_slope_detailed
-from mypower.port import port
 from mypower.pretty import pretty
 from mypower.save_str import save_str
 from mypower.save_pkl import save_pkl
