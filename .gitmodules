@@ -1,3 +1,0 @@
-[submodule "matpower"]
-	path = mypower/matpower
-	url = https://github.com/MATPOWER/matpower
