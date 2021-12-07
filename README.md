@@ -53,7 +53,10 @@ pip install numpy oct2py
 
 ### Windows (command prompt)
 
+Note: It is assumed that `matpower` is located on `mypower/` subfolder (not repository root folder). Thus, use `cd mypower` if you are from repository root folder.
+
 ```bash
+cd mypower
 curl -L https://github.com/MATPOWER/matpower/archive/refs/tags/7.1.zip > matpower.zip
 tar -xf matpower.zip
 del matpower7.1.zip
