@@ -33,7 +33,7 @@ idx = myp.get_index()
 print(myp.pretty(idx))
 
 ### get slack generator index
-mypc = oc.loadcase('case9')
+mypc = oc.loadcase(case_name)
 mypc0 = myp.to_mypc0(mypc)
 for bus_slack,val in zip(mypc0['bus'][:,idx['BUS_I']],mypc0['bus'][:,idx['BUS_TYPE']]):
     if val == idx['REF']:
