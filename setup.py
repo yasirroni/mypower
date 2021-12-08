@@ -32,5 +32,7 @@ setuptools.setup(
     ],
     python_requires='>=3.6',
     install_requires = [
-        "numpy"
+        "numpy",
+        "oct2py"
+    ]
 )
