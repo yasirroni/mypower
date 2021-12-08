@@ -6,14 +6,6 @@ from mypower.__version__ import __version__
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-def package_files(directory_list):
-    paths = []
-    for directory in directory_list:
-        for (path, _, filenames) in os.walk(directory):
-            for filename in filenames:
-                paths.append(os.path.join('..', path, filename))
-    return paths
-
 setuptools.setup(
     name="mypower", # Replace with your own username
     version=__version__,
