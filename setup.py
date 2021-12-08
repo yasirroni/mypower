@@ -14,17 +14,6 @@ def package_files(directory_list):
                 paths.append(os.path.join('..', path, filename))
     return paths
 
-extra_files = package_files([
-    'mypower/matpower/data',
-    'mypower/matpower/docker',
-    'mypower/matpower/docs',
-    'mypower/matpower/lib',
-    'mypower/matpower/mips',
-    'mypower/matpower/most',
-    'mypower/matpower/mp-opt-model',
-    'mypower/matpower/mptest'
-    ])
-
 setuptools.setup(
     name="mypower", # Replace with your own username
     version=__version__,
@@ -35,22 +24,13 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/yasirroni/mypower",
     packages=setuptools.find_packages(),
-    package_data={
-        '': extra_files,
-        'mypower':[
-            'matpower/AUTHORS',
-            'matpower/CHANGES.md',
-            'matpower/CITATION',
-            'matpower/CONTRIBUTING.md',
-            'matpower/install_matpower.m',
-            'matpower/LICENSE',
-            'matpower/README.md'
-            ]
-        },
+    package_data={},
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache License",
         "Scientific Engineering :: Mathematics",
     ],
     python_requires='>=3.6',
+    install_requires = [
+        "numpy"
 )
