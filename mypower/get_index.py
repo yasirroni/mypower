@@ -96,17 +96,22 @@ def get_index_dynamic(path_matpower_lib='matpower\\lib',exception='default',file
         if os.path.isdir(os.path.join(os.path.dirname(__file__ ),path_matpower_lib)):
             path_matpower_lib=os.path.join(os.path.dirname(__file__ ),path_matpower_lib)
         else:
-            raise ValueError("""NO MATPOWER LIB PATH FOUND!
-PLEASE USE:
-    oc = oc_matpower(path_matpower='/PATH/matpower/lib')
+            raise ValueError(
+            "NO MATPOWER PATH FOUND!\n"
+        """
+            PLEASE USE:
+                oc = oc_matpower(path_matpower='/PATH/TO/matpower')
 
-ALTERNATIVELY, PLACE MATPOWER IN myPower PACKAGE. 
-NAME THE FOLDER WITH 'matpower'. RESULT WILL BE:
-    ...\\mypower\\api.py
-    ...
-    ...\\mypower\\matpower << here (whithout making new matpower folder)
-    ...\\mypower\\matpower\\data
-    ...\\mypower\\matpower\\lib""")
+            ALTERNATIVELY, PLACE MATPOWER IN myPower PACKAGE and use oc = oc_matpower(). 
+            NAME THE FOLDER WITH 'matpower'. RESULT WILL BE:
+                ...\\mypower\\__init__.py
+                ...\\mypower\\matpower_api.py
+                ...
+                ...\\mypower\\matpower << here (whithout making new matpower folder)
+                ...\\mypower\\matpower\\data
+                ...\\mypower\\matpower\\lib
+        """
+    )
 
     if exception == 'default':
         exception = ['PQ','PV','REF','NONE','PW_LINEAR','POLYNOMIAL']
