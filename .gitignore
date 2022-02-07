@@ -9,6 +9,8 @@ mypower_test.py
 mypower_test.ipynb
 playground/
 playground.ipynb
+mypc.pkl
+mypc.txt
 
 # Patch
 mypower_patch.py
