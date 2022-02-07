@@ -1,25 +1,25 @@
 from oct2py import Oct2Py
 import os
 
-def oc_addgenpath(path,oc=None):
+def oc_addgenpath(path, oc=None):
     if oc == None:
         oc = Oct2Py()
-    oc.addpath(oc.genpath(path))
+    oc.eval(f"addpath(genpath('{path}'))")
     return oc
 
-def oc_addpath(path,oc=None):
+def oc_addpath(path, oc=None):
     if oc == None:
         oc = Oct2Py()
     oc.addpath(path)
     return oc
 
-def oc_matpower(path_matpower='matpower',oc=None):
+def oc_matpower(path_matpower='matpower', oc=None):
     error_path = False
     if path_matpower == 'matpower':
-        if os.path.isdir(os.path.join(os.path.dirname(__file__ ), path_matpower)):
-            path_matpower = os.path.join(os.path.dirname(__file__ ), path_matpower)
-        else:
-            error_path = True
+        import matpower
+        path_matpower = matpower.path_matpower
+    elif path_matpower == 'mypower':
+        path_matpower = os.path.dirname(os.path.abspath(__file__))
     elif not os.path.isdir(path_matpower):
         error_path = True
     
@@ -28,19 +28,15 @@ def oc_matpower(path_matpower='matpower',oc=None):
             "NO MATPOWER PATH FOUND!\n"
         """
             PLEASE USE:
-                oc = oc_matpower(path_matpower='/PATH/TO/matpower')
+                oc = oc_matpower(path_matpower='/PATH/TO/MATPOWER')
 
-            ALTERNATIVELY, PLACE MATPOWER IN mypower PACKAGE and use oc = oc_matpower(). 
-            NAME THE FOLDER WITH 'matpower'. RESULT WILL BE:
-                ...\\mypower\\__init__.py
-                ...\\mypower\\matpower_api.py
-                ...
-                ...\\mypower\\matpower << here (whithout making new matpower folder)
-                ...\\mypower\\matpower\\data
-                ...\\mypower\\matpower\\lib
+            RECOMMENDED WAY TO INSTALL MATPOWER IS USING:
+
+                pip install matpower
+
+            ALTERNATIVELY, PLACE MATPOWER IN mypower PACKAGE and use:
+                oc = oc_matpower(path_matpower=mypower). 
         """
     )
-    if oc == None:
-        oc = Oct2Py()
-    oc.addpath(oc.genpath(path_matpower)) # add path to matpower
-    return oc
+
+    return oc_addgenpath(path_matpower)

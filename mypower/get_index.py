@@ -98,18 +98,17 @@ def get_index_dynamic(path_matpower_lib='matpower\\lib',exception='default',file
         else:
             raise ValueError(
             "NO MATPOWER PATH FOUND!\n"
+            "NO MATPOWER PATH FOUND!\n"
         """
             PLEASE USE:
-                oc = oc_matpower(path_matpower='/PATH/TO/matpower')
+                oc = oc_matpower(path_matpower='/PATH/TO/MATPOWER')
 
-            ALTERNATIVELY, PLACE MATPOWER IN mypower PACKAGE and use oc = oc_matpower(). 
-            NAME THE FOLDER WITH 'matpower'. RESULT WILL BE:
-                ...\\mypower\\__init__.py
-                ...\\mypower\\matpower_api.py
-                ...
-                ...\\mypower\\matpower << here (whithout making new matpower folder)
-                ...\\mypower\\matpower\\data
-                ...\\mypower\\matpower\\lib
+            RECOMMENDED WAY TO INSTALL MATPOWER IS USING:
+
+                pip install matpower
+
+            ALTERNATIVELY, PLACE MATPOWER IN mypower PACKAGE and use:
+                oc = oc_matpower(path_matpower=mypower). 
         """
     )
 

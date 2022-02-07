@@ -28,7 +28,7 @@ setuptools.setup(
         "License :: OSI Approved :: Apache License",
         "Scientific Engineering :: Mathematics",
     ],
-    python_requires = '> = 3.6',
+    python_requires = '>=3.6',
     install_requires = [
         "numpy>=1.0.0",
         "oct2py>=5.2."
