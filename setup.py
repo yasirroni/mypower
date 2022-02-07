@@ -1,5 +1,6 @@
 import setuptools
 import os
+import re
 
 PACKAGE_NAME = 'mypower'
 current_path = os.path.abspath(os.path.dirname(__file__))
