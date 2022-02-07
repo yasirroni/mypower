@@ -1,4 +1,5 @@
 import os
+from .oc_api import check_path
 
 def get_index():
     '''mypower index based on MATPOWER (Static, last fectch is MATPOWER 7.0)
@@ -85,19 +86,17 @@ def get_index():
         'MU_QMIN': 24
     }
 
-def get_index_dynamic(path_matpower_lib='matpower\\lib',exception='default',file_name='default'):
+def get_index_dynamic(path_matpower='matpower',exception='default',file_name='default'):
     '''mypower index based on MATPOWER
     Since MATPOWER based on MATLAB, matrix index need to be substracted by 1,
     except:
         ['PQ','PV','REF','NONE','PW_LINEAR','POLYNOMIAL']
 
     '''
-    if path_matpower_lib == 'matpower\\lib':
-        if os.path.isdir(os.path.join(os.path.dirname(__file__ ),path_matpower_lib)):
-            path_matpower_lib=os.path.join(os.path.dirname(__file__ ),path_matpower_lib)
-        else:
-            raise ValueError(
-            "NO MATPOWER PATH FOUND!\n"
+    path_matpower, error_path = check_path(path_matpower)
+
+    if error_path:
+        raise ValueError(
             "NO MATPOWER PATH FOUND!\n"
         """
             PLEASE USE:
@@ -121,7 +120,7 @@ def get_index_dynamic(path_matpower_lib='matpower\\lib',exception='default',file
     idx = {}
 
     for val in file_name:
-        with open(os.path.join(path_matpower_lib,val),'r') as txt:
+        with open(os.path.join(path_matpower,val),'r') as txt:
             for line in txt:
                 words = line.split()
                 if len(words)>0:
