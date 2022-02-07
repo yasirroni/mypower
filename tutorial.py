@@ -12,16 +12,16 @@ mypc = oc.runpf(case_name)
 print(myp.pretty(mypc))
 
 # save in str (can't be loaded automatically)
-myp.save_str(mypc)
+myp.utils.save_txt(mypc)
 
 # save in pkl
-myp.save_pkl(mypc,'mypc.pkl')
+myp.utils.save_pkl(mypc,'mypc.pkl')
 
 # delete mypc
 del mypc
 
 # load mypc
-mypc = myp.load_pkl('mypc.pkl')
+mypc = myp.utils.load_pkl('mypc.pkl')
 
 # get index
 idx = myp.get_index()

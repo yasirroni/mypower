@@ -1,6 +1,6 @@
 from .pretty import pretty
 
-def save_str(inp,path_file=None):
+def save_txt(inp,path_file=None):
     if path_file==None:
         import os
         path_file=os.path.join(os.getcwd(),'mypc.txt')

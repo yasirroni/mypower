@@ -1,5 +1,5 @@
-def str_in(path):
-    '''str_in
+def load_txt(path):
+    '''load_txt
     Return list of str. Used to get str from readable .txt file
     '''
     t = []
