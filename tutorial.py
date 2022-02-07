@@ -1,6 +1,7 @@
 # import library
 import os
 import mypower as myp
+import mypower.utils
 
 # start octave session for mypower
 m = myp.start_matpower()

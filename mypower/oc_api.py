@@ -2,16 +2,16 @@ from oct2py import Oct2Py
 import os
 
 def oc_addgenpath(path, m=None):
-    if oc == None:
-        oc = Oct2Py()
+    if m == None:
+        m = Oct2Py()
     m.eval(f"addpath(genpath('{path}'))")
-    return oc
+    return m
 
 def oc_addpath(path, m=None):
-    if oc == None:
-        oc = Oct2Py()
+    if m == None:
+        m = Oct2Py()
     m.addpath(path)
-    return oc
+    return m
 
 def start_matpower(path_matpower='matpower', m=None):
     error_path = False

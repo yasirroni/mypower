@@ -15,7 +15,7 @@ def makeB_kron(mypc='case9', mpopt=None, m=None):
         1. Output mypc from makeB_kron is not Kron's pf output, but pf used to make B_kron
     '''
 
-    if oc == None:
+    if m == None:
         m = myp.start_matpower()
 
     if type(mypc) == str:
