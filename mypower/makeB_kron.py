@@ -6,7 +6,7 @@ from numpy.linalg import inv
 from .get_index import get_index
 from .to_mypc0 import to_mypc0
 
-def makeB_kron(mypc='case9',mpopt=None,oc=None):
+def makeB_kron(mypc='case9', mpopt=None, m=None):
     '''
     Make B Kron or Kron Coefficient based on Arango Angarita,(2018). B Kron can be used to estimate power losses without redoing the power flow.
     Source: Arango Angarita, Dario & Urrego, Ricardo & Rivera, Sergio. (2018). Robust loss coefficients: application to power systems with solar and wind energy.
@@ -16,14 +16,13 @@ def makeB_kron(mypc='case9',mpopt=None,oc=None):
     '''
 
     if oc == None:
-        from mypower.oc_api import oc_matpower
-        oc = oc_matpower()
+        m = myp.start_matpower()
 
     if type(mypc) == str:
         if mpopt != None:
-            mypc = oc.runpf(mypc,mpopt)
+            mypc = m.runpf(mypc,mpopt)
         else:
-            mypc = oc.runpf(mypc)
+            mypc = m.runpf(mypc)
 
         if mypc['success'] != 1:
             print("No Solution in Power Flow!")
@@ -33,7 +32,7 @@ def makeB_kron(mypc='case9',mpopt=None,oc=None):
 
     baseMVA = mypc['baseMVA']
     if 'Ybus' not in mypc:
-        mypc['Ybus'] = oc.makeYbus(mypc)
+        mypc['Ybus'] = m.makeYbus(mypc)
     if 'Zbus' not in mypc:
         mypc['Zbus'] = inv(mypc['Ybus'].toarray())
 
@@ -50,9 +49,9 @@ def makeB_kron(mypc='case9',mpopt=None,oc=None):
 
     if int(gen_PG_slack) == 0:
         if mpopt != None:
-            mypc = oc.runpf(mypc,mpopt)
+            mypc = m.runpf(mypc,mpopt)
         else:
-            mypc = oc.runpf(mypc)
+            mypc = m.runpf(mypc)
         mypc0 = to_mypc0(mypc)
 
     gen_PG_pu = mypc0['gen'][:,idx['PG']] / baseMVA

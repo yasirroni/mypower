@@ -1,15 +1,14 @@
 # import library
 import os
 import mypower as myp
-from mypower.oc_api import oc_matpower
 
 # start octave session for mypower
-oc = oc_matpower()
+m = myp.start_matpower()
 
 # run power flow and get mypowercase
 case_name = 'case9'
-mypc = oc.runpf(case_name)
-print(myp.pretty(mypc))
+mypc = m.runpf(case_name)
+print(myp.utils.pretty(mypc))
 
 # save in str (can't be loaded automatically)
 myp.utils.save_txt(mypc)
@@ -25,24 +24,24 @@ mypc = myp.utils.load_pkl('mypc.pkl')
 
 # get index
 idx = myp.get_index()
-print(myp.pretty(idx))
+print(myp.utils.pretty(idx))
 
 # get gen_PG from mypc
 gen_PG = mypc['gen'][:,idx['PG']]
-print(myp.pretty(gen_PG))
+print(myp.utils.pretty(gen_PG))
 
 # convert to mypc0 for Python combatibility
 mypc0 = myp.to_mypc0(mypc)
-print(myp.pretty(mypc0['bus'][:,idx['BUS_I']]))
+print(myp.utils.pretty(mypc0['bus'][:,idx['BUS_I']]))
 
 # revert to mypc for Octave compatibility
 mypc = myp.to_mypc(mypc0)
-print(myp.pretty(mypc['bus'][:,idx['BUS_I']]))
+print(myp.utils.pretty(mypc['bus'][:,idx['BUS_I']]))
 
 # setting mpopt
-mpopt = oc.mpoption(model='DC')
-print(myp.pretty(mpopt))
+mpopt = m.mpoption(model='DC')
+print(myp.utils.pretty(mpopt))
 
 # using mpopt in runpf
-mypc = oc.runpf(case_name,mpopt)
-print(myp.pretty(mypc))
+mypc = m.runpf(case_name,mpopt)
+print(myp.utils.pretty(mypc))

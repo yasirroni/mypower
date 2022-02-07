@@ -35,10 +35,10 @@ If you already have MATPOWER installed, you can pass the path to mypower when st
 To use oct2py based MATPOWER, use:
 
 ```python
-from mypower.oc_api import oc_matpower
+import mypower as myp
 
-oc = oc_matpower()
-mypc = oc.runpf(nout=1) # nout specify number of returned variable from Octave
+m = myp.start_matpower()
+mypc = m.runpf(nout=1) # nout specify number of returned variable from Octave
 ```
 
 See tutorial for detailed example.
