@@ -29,10 +29,12 @@ setuptools.setup(
     ],
     python_requires = '> = 3.6',
     install_requires = [
-        "numpy",
-        "oct2py"
+        "numpy>=1.0.0",
+        "oct2py>=5.2."
     ],
     extras_require = {
-        "matpower": ["matpower"]
+        "matpower": [
+            "matpower>=7.0.0.1"
+        ]
     }
 )
