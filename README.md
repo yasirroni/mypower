@@ -1,55 +1,34 @@
-# myPower
+# mypower
 
-Supplementary function and port of [MATPOWER](https://github.com/MATPOWER/matpower) in Python. myPower stands for Matlab Python Ported MATPOWER.
+Supplementary function and port of [MATPOWER](https://github.com/MATPOWER/matpower) in Python, powered by octave via oct2py.
 
 ## Requirements
 
 ### Octave (Tutorial for Windows 10)
 
-1. Download [octave](https://www.gnu.org/software/octave/download.html) zip.
-2. Add new Environment Variable to execute `octave-cli`.
+1. Download [octave](https://www.gnu.org/software/octave/download.html).
+
+2. Install octave, write down the destination path.
+
+3. Open Environment Variable. You can access it by pressing <kbd>Windows-Key</kbd>, type `edit the system environment variables`, and press <kbd>&#9166;Enter</kbd> to search.
+
+4. Add new Environment Variable to execute `octave-cli`. The path is likely to be `C:\Program Files\octave-5.2.0-w64\mingw64\bin\octave-cli.exe`.
 
     Variable name: `OCTAVE_EXECUTABLE`
 
     Variable value: `location:\\of\\octave\\bin\\octave-cli.exe`
 
-3. Restart computer to make 'os.environ' recognize the new path.
-4. To test, open Command Prompt, run python, import oct2py.
+5. Restart computer to make `os.environ` recognize the new path.
 
-    ```python
-    import oct2py
-    ```
+### MATPOWER
 
-### Library
+The recommended way to install MATPOWER from python is using [matpower-pip](https://github.com/yasirroni/matpower-pip).
 
-myPower needs [numpy](https://github.com/numpy/numpy) and [oct2py](https://github.com/blink1073/oct2py) to be used.
-
-```bash
-pip install numpy oct2py
+```plaintext
+pip install matpower
 ```
 
-### Matpower
-
-#### Windows (command prompt)
-
-Note: It is assumed that `matpower` is located on `mypower/` subfolder (not repository root folder). Thus, use `cd mypower` if you are from repository root folder.
-
-```bash
-cd mypower
-curl -L https://github.com/MATPOWER/matpower/archive/refs/tags/7.1.zip > matpower.zip
-tar -xf matpower.zip
-del matpower7.1.zip
-```
-
-## Notable of functions
-
-1. losses_kron: Compute losses based on Kron's coefficient
-
-2. makeB_kron: Make B based on Kron's method
-
-3. to_mypc: Revert mypc indexing to start from 1 for octave compatibility
-
-4. to_mypc0: Fix mypc bus indexing to start from 0 for Pyhton compatibility
+If you already have MATPOWER installed, you can pass the path to mypower when starting matpower instance.
 
 ## Usage
 
