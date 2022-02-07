@@ -1,7 +1,7 @@
 import os
 
 def get_index():
-    '''myPower index based on MATPOWER (Static, last fectch is MATPOWER 7.0)
+    '''mypower index based on MATPOWER (Static, last fectch is MATPOWER 7.0)
     To get dynamic or updated indexing, use get_index_dynamic
     Since MATPOWER based on MATLAB, matrix index need to be substracted by 1,
     except:
@@ -86,7 +86,7 @@ def get_index():
     }
 
 def get_index_dynamic(path_matpower_lib='matpower\\lib',exception='default',file_name='default'):
-    '''myPower index based on MATPOWER
+    '''mypower index based on MATPOWER
     Since MATPOWER based on MATLAB, matrix index need to be substracted by 1,
     except:
         ['PQ','PV','REF','NONE','PW_LINEAR','POLYNOMIAL']
@@ -102,7 +102,7 @@ def get_index_dynamic(path_matpower_lib='matpower\\lib',exception='default',file
             PLEASE USE:
                 oc = oc_matpower(path_matpower='/PATH/TO/matpower')
 
-            ALTERNATIVELY, PLACE MATPOWER IN myPower PACKAGE and use oc = oc_matpower(). 
+            ALTERNATIVELY, PLACE MATPOWER IN mypower PACKAGE and use oc = oc_matpower(). 
             NAME THE FOLDER WITH 'matpower'. RESULT WILL BE:
                 ...\\mypower\\__init__.py
                 ...\\mypower\\matpower_api.py

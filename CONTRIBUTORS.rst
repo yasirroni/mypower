@@ -1,4 +1,4 @@
-myPower is written and maintained by Muhammad Yasirroni and
+mypower is written and maintained by Muhammad Yasirroni and
 various contributors:
 
 Development Lead

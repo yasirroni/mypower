@@ -30,7 +30,7 @@ def oc_matpower(path_matpower='matpower',oc=None):
             PLEASE USE:
                 oc = oc_matpower(path_matpower='/PATH/TO/matpower')
 
-            ALTERNATIVELY, PLACE MATPOWER IN myPower PACKAGE and use oc = oc_matpower(). 
+            ALTERNATIVELY, PLACE MATPOWER IN mypower PACKAGE and use oc = oc_matpower(). 
             NAME THE FOLDER WITH 'matpower'. RESULT WILL BE:
                 ...\\mypower\\__init__.py
                 ...\\mypower\\matpower_api.py

@@ -3,7 +3,7 @@ import os
 import mypower as myp
 from mypower.oc_api import oc_matpower
 
-# start octave session for myPower
+# start octave session for mypower
 oc = oc_matpower()
 
 # run power flow and get mypowercase

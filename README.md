@@ -47,7 +47,7 @@ See tutorial for detailed example.
 
 * **Muhammad Yasirroni** - [yasirroni](https://github.com/yasirroni)
 
-See also the list of [contributors](https://github.com/yasirroni/myPower/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/yasirroni/mypower/graphs/contributors) who participated in this project.
 
 Feel free if you want to contribute.
 
