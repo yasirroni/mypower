@@ -1,11 +1,6 @@
-We request that publications derived from the use of mypower, explicitly 
-acknowledge that fact by citing the appropriate paper(s) and the software 
-itself. Since mypower is based on MATPOWER, please see also the 
-'matpower/CITATION' file.
+We do request that publications derived from the use of `mypower`, explicitly acknowledge that fact by citing the appropriate paper(s) and the software mentioned on [MATPOWER publication](https://github.com/MATPOWER/matpower#citing-matpower) and the following citation:
 
-### Papers
+> M. Yasirroni, Sarjiya, "mypower: Supplementary function and Python port of MATPOWER", GitHub, 2021. [Online]. Available: https://github.com/yasirroni/matpower-pip.
 
-2020-07-29  : mypower paper publication is in works. Please mention 
-'https://github.com/yasirroni/mypower/' in your work until mypower paper
-are published
+If a journal publication from the author to appear soon should be cited instead.
                                                                                             .
