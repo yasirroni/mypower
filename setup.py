@@ -25,8 +25,14 @@ setuptools.setup(
     package_data = {},
     classifiers = [
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: Apache License",
-        "Scientific Engineering :: Mathematics",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "License :: OSI Approved :: MIT License",
+        "Development Status :: 3 - Alpha",
+        "Topic :: Scientific/Engineering",
     ],
     python_requires = '>=3.6',
     install_requires = [
