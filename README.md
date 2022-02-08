@@ -43,6 +43,14 @@ mypc = m.runpf(nout=1) # nout specify number of returned variable from Octave
 
 See tutorial for detailed example.
 
+## Citing `mypower`
+
+We do request that publications derived from the use of `mypower`, explicitly acknowledge that fact by citing the appropriate paper(s) and the software mentioned on [MATPOWER publication](https://github.com/MATPOWER/matpower#citing-matpower) and the following citation:
+
+> M. Yasirroni, Sarjiya, "mypower: Supplementary function and Python port of MATPOWER", GitHub, 2021. [Online]. Available: https://github.com/yasirroni/mypower.
+
+If a journal publication from the author to appear soon should be cited instead.
+
 ## Authors
 
 * **Muhammad Yasirroni** - [yasirroni](https://github.com/yasirroni)
