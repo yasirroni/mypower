@@ -11,7 +11,10 @@ def makeB_kron(mypc='case9', mpopt=None, m=None):
     Make B Kron or Kron Coefficient based on Arango Angarita,(2018). B Kron can be used to estimate power losses without redoing the power flow.
     Source: Arango Angarita, Dario & Urrego, Ricardo & Rivera, Sergio. (2018). Robust loss coefficients: application to power systems with solar and wind energy.
     
-    Note    :
+    Original MATLAB code:
+        https://www.mathworks.com/matlabcentral/fileexchange/60703-power-systems-loss-coefficients-by-arango-urrego-rivera?
+
+    Note:
         1. Output mypc from makeB_kron is not Kron's pf output, but pf used to make B_kron
     '''
 
